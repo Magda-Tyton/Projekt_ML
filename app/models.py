@@ -43,8 +43,8 @@ def best_model_regressor_fp(X_train, y_train, X_test, y_test, f=lambda x: x, g=l
 
     return g(best_model.predict(X_test))
 
-def best_model_log_regressor_fp(X_train, y_train, X_subtest, y_subtest, X_test):
-    return best_model_regressor_fp(X_train, y_train, X_subtest, y_subtest, X_test, np.log1p, np.expm1)
+def best_model_log_regressor_fp(X_train, y_train, X_test, y_test):
+    return best_model_regressor_fp(X_train, y_train, X_test, y_test, np.log1p, np.expm1)
 
 def load_and_prepare(csv_path):
     df = pd.read_csv(csv_path, low_memory=False)
@@ -122,4 +122,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
